@@ -37,7 +37,8 @@ function goBackToMenu() {
     window.location.href = 'index.html#menu';
 }
 function toggleMobileMenu() {
-    document.querySelector('header').classList.toggle('mobile-menu-active');
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('show');
 }
 
 // Close mobile menu when clicking a link
