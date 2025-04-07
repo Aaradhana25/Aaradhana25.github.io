@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulcéa - Bestseller</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="color-overlay"></div>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <h1>Dulcéa</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="http://127.0.0.1:5500/index.html" class="active">Home</a></li>
+                <li><a href="http://127.0.0.1:5500/about.html">About</a></li>
+                <li><a href="http://127.0.0.1:5500/Giftcards.html">Gift Cards</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="http://127.0.0.1:5500/contact.html#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="coffee-menu">
+        <div class="section-header">
+            <h2 class="section-title">Bestseller</h2>
+            <button class="back-btn" onclick="goBackToMenu()">
+                <i class="fas fa-arrow-left"></i> Back to Menu
+            </button>
+        </div>
+
+        <div class="coffee-grid">
+          
+            <div class="coffee-item" onclick="showItemDetails('quesadilla')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/57/76/bd/5776bdc4dc5ab857689e57faac1d0bad.jpg" alt="Quesadilla">
+                </div>
+                <h2>Quesadilla</h2>
+                <p>Grilled tortilla filled with melted cheese and savory fillings, toasted to crispy perfection.</p>
+                <span class="price">₹320</span>
+                <span class="badge">Signature</span>
+            </div>
+            
+            
+            <div class="coffee-item" onclick="showItemDetails('ravioli')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/a9/71/39/a971391be575483f85711724d3dce865.jpg" alt="Ravioli">
+                </div>
+                <h2>Ravioli</h2>
+                <p>Pillow-soft pasta filled with a rich stuffing, served with a flavorful sauce.</p>
+                <span class="price">₹535</span>
+                <span class="badge">Signature</span>
+            </div>
+
+            
+            <div class="coffee-item" onclick="showItemDetails('lasagna')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/6e/04/05/6e0405bc7c4b4430077603049773440f.jpg" alt="lasagna">
+                </div>
+                <h2>Lasagna</h2>
+                <p>Layers of pasta, rich marinara, creamy béchamel, and melted cheese, baked to perfection.</p>
+                <span class="price">₹520</span>
+                <span class="badge">Signature</span>
+            </div>
+    
+            <div class="coffee-item" onclick="showItemDetails('sea-salt-caramel')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/4a/2d/91/4a2d9169cbbee01668800b286c37f901.jpg" alt="Sea Salt Caramel Mocha">
+                </div>
+                <h2>Sea Salt Caramel Mocha</h2>
+                <p>Rich mocha with sea salt caramel sauce and whipped cream</p>
+                <span class="price">₹495</span>
+                <span class="badge">Signature</span>
+            </div>
+            <div class="coffee-item" onclick="showItemDetails('dulcea-special')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/1f/85/72/1f85723779ea27e2e2ef06340fa52cca.jpg" alt="Dulcéa Special">
+                </div>
+                <h2>Dulcéa Special</h2>
+                <p>Our signature blend with caramel, cinnamon, and whipped cream</p>
+                <span class="price">₹540</span>
+                <span class="badge">Signature</span>
+            </div>
+
+         
+
+            <div class="coffee-item" onclick="showItemDetails('creamy-alfredo-pasta')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/1b/04/c5/1b04c5da1a2919a5f797bc68468f1053.jpg" alt="Pasta Alfredo">
+                </div>
+                <h2>Creamy Alfredo Pasta</h2>
+                <p>Delicious pasta in creamy Alfredo sauce with Parmesan.</p>
+                <span class="price">₹420</span>
+                <span class="badge">Signature</span>
+            </div>
+            <div class="coffee-item" onclick="showItemDetails('chocolate-cake')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/8c/58/ba/8c58ba472bc6ef743bc78e2565cd910f.jpg" alt="Chocolate Cake">
+                </div>
+                <h2>Chocolate cake</h2>
+                <p>Rich chocolate cake with creamy frosting and a cocoa finish.</p>
+                <span class="price">₹130</span>
+                <span class="badge">Signature</span>
+            </div>
+            <div class="coffee-item" onclick="showItemDetails('loaded-nachos')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/40/c9/ba/40c9ba7e9c1ab5d54d8520468c6ac822.jpg" alt="loaded-nachos">
+                </div>
+                <h2>Loaded Nachos</h2>
+                <p>Crispy tortilla chips topped with melted cheese, salsa, and jalapeños.</p>
+                <span class="price">₹320</span>
+                <span class="badge">Signature</span>
+            </div>
+            <div class="coffee-item" onclick="showItemDetails('tiramisu')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/2f/cc/bc/2fccbc87e4b54c8419f4831cd9d5058a.jpg" alt="Tiramisu">
+                </div>
+                <h2>Tiramisu</h2>
+                <p>Coffee-soaked sponge with creamy mascarpone and cocoa.</p>
+                <span class="price">₹325</span>
+                <span class="badge">Signature</span>
+            </div>
+            <div class="coffee-details hidden" id="itemDetails">
+                <div class="details-content">
+                    <button class="close-btn" onclick="closeItemDetails()">×</button>
+                    
+                    <div class="detail-text">
+                        <h2 id="detailTitle">Item Name</h2>
+                        <p id="detailDescription">Detailed description of the item goes here.</p>
+                        <div class="coffee-info">
+                            <div class="info-item">
+                                <span>Ingredients</span>
+                                <ul id="detailIngredients">
+                                    <li>Ingredient 1</li>
+                                    <li>Ingredient 2</li>
+                                    <li>Ingredient 3</li>
+                                </ul>
+                            </div>
+                            <div class="info-item">
+                                <span>Options</span>
+                                <ul id="detailOptions">
+                                    <li>Option 1</li>
+                                    <li>Option 2</li>
+                                </ul>
+                            </div>
+                            <div class="info-item">
+                                <span>Price</span>
+                                <p id="detailPrice"></p>
+                            </div>
+                        </div>
+                        <button class="add-to-menu-btn" onclick="redirectToLogin()">Add to Menu</button>
+                    </div>
+                </div>
+            </div>
+    
+
+    <script src="script.js"></script>
+    <script>
+        // Coffee details database
+        const coffeeDetails = { 
+
+    'chocolate-cake': {
+    title: 'Chocolate Cake',
+    description: 'Rich chocolate cake with creamy frosting and a cocoa finish.',
+    ingredients: ['Chocolate sponge', 'Cocoa powder', 'Buttercream frosting', 'Sugar'],
+    options: ['Regular', 'Extra frosting (+₹40)', 'Add choco chips (+₹50)'],
+    price: '₹130'},
+
+    'sea-salt-caramel': {
+        title: 'Sea Salt Caramel Mocha',
+        description: 'Rich mocha with sea salt caramel sauce and whipped cream.',
+        ingredients: ['Espresso', 'Steamed milk', 'Caramel sauce', 'Sea salt', 'Whipped cream'],
+        options: ['Regular', 'Extra caramel (+₹50)', 'Alternative milk (+₹42)'],
+        price: '₹495'
+    },
+    'dulcea-special': {
+        title: 'Dulcéa Special',
+        description: 'Our signature blend with caramel, cinnamon, and whipped cream.',
+        ingredients: ['Espresso', 'Steamed milk', 'Caramel', 'Cinnamon', 'Whipped cream'],
+        options: ['Regular', 'Extra cinnamon (+₹40)', 'Alternative milk (+₹42)'],
+        price: '₹540'
+    },
+   
+
+  
+    'ravioli': {
+        title: 'Ravioli',
+        description: 'Pillow-soft pasta filled with a rich stuffing, served with a flavorful sauce.',
+        ingredients: ['Stuffed pasta', 'Ricotta cheese', 'Tomato sauce', 'Parmesan'],
+        options: ['Regular', 'Extra cheese (+₹50)', 'Creamy Alfredo sauce (+₹60)'],
+        price: '₹460'
+    },
+    'lasagna': {
+        title: 'Lasagna',
+        description: 'Layers of pasta, rich marinara, creamy béchamel, and melted cheese, baked to perfection.',
+        ingredients: ['Lasagna sheets', 'Marinara sauce', 'Ground meat', 'Béchamel sauce', 'Mozzarella'],
+        options: ['Regular', 'Extra cheese (+₹50)', 'Vegetarian option (+₹40)'],
+        price: '₹490'
+    },
+    'cheese-burger': {
+        title: 'Cheese Burger',
+        description: 'Juicy grilled beef patty with melted cheese, lettuce, tomatoes, and a special sauce.',
+        ingredients: ['Beef patty', 'Cheese', 'Lettuce', 'Tomato', 'Burger bun'],
+        options: ['Regular', 'Add Bacon (+₹80)', 'Extra Cheese (+₹40)'],
+        price: '₹350'
+    },
+    'quesadilla': {
+        title: 'Quesadilla',
+        description: 'Grilled tortilla filled with melted cheese and savory fillings.',
+        ingredients: ['Flour tortilla', 'Cheese', 'Grilled chicken/veggies', 'Sour cream'],
+        options: ['Regular', 'Extra cheese (+₹50)', 'Spicy jalapeños (+₹40)'],
+        price: '₹380'
+    },
+    'loaded-nachos': {
+        title: 'Loaded Nachos',
+        description: 'Crispy tortilla chips topped with melted cheese, salsa, and jalapeños.',
+        ingredients: ['Tortilla chips', 'Cheese', 'Salsa', 'Jalapeños', 'Sour cream'],
+        options: ['Regular', 'Extra cheese (+₹50)', 'Guacamole (+₹60)'],
+        price: '₹320'
+    },
+    'creamy-alfredo-pasta': {
+        title: 'Creamy Alfredo Pasta',
+        description: 'Rich and creamy Alfredo sauce mixed with perfectly cooked pasta.',
+        ingredients: ['Pasta', 'Alfredo sauce', 'Garlic', 'Parmesan cheese'],
+        options: ['Regular', 'Add mushrooms (+₹40)', 'Grilled chicken (+₹80)'],
+        price: '₹420'
+    },
+    'tiramisu': {
+    title: 'Tiramisu',
+    description: 'Layers of coffee-soaked sponge, mascarpone, and cocoa.',
+    ingredients: ['Espresso-soaked sponge', 'Mascarpone cheese', 'Cocoa powder', 'Sugar'],
+    options: ['Regular', 'Extra cocoa (+₹30)', 'Add chocolate chips (+₹50)'],
+    price: '₹325'
+}
+
+};
+
+
+        // Function to show item details
+        function showItemDetails(itemId) {
+            const details = coffeeDetails[itemId] || {
+                title: 'Coffee Item',
+                description: 'Detailed description not available.',
+                ingredients: ['Ingredient information not available'],
+                options: ['Options not available'],
+                price: 'Price not available',
+                
+            };
+            
+            document.getElementById('detailTitle').textContent = details.title;
+            document.getElementById('detailDescription').textContent = details.description;
+            document.getElementById('detailPrice').textContent = details.price;
+           
+            
+            // Update ingredients list
+            const ingredientsList = document.getElementById('detailIngredients');
+            ingredientsList.innerHTML = '';
+            details.ingredients.forEach(ingredient => {
+                const li = document.createElement('li');
+                li.textContent = ingredient;
+                ingredientsList.appendChild(li);
+            });
+            
+            // Update options list
+            const optionsList = document.getElementById('detailOptions');
+            optionsList.innerHTML = '';
+            details.options.forEach(option => {
+                const li = document.createElement('li');
+                li.textContent = option;
+                optionsList.appendChild(li);
+            });
+            
+            document.getElementById('itemDetails').classList.remove('hidden');
+        }
+        
+        function closeItemDetails() {
+            document.getElementById('itemDetails').classList.add('hidden');
+        }
+        function redirectToLogin() {
+            alert("Item added to cart!");
+}
+    </script>
+   
+</body>
+</html>

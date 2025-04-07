@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulcéa-SignUp-SignIn</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url("https://images.pexels.com/photos/1419939/pexels-photo-1419939.jpeg") no-repeat center center/cover;
+            overflow: hidden;
+            color: #4b2e1e;
+            
+        }
+        .container {
+            background: rgba(255, 248, 240, 0.9);
+            padding: 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            text-align: center;
+            max-width: 380px;
+            width: 100%;
+            position: relative;
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        input {
+            display: block;
+            width: calc(100% - 20px);
+            margin: 10px auto;
+            padding: 12px;
+            border: 1px solid #c19a6b;
+            border-radius: 5px;
+            font-size: 16px;
+            background: #fff8f0;
+            color: #4b2e1e;
+        }
+        button {
+            background: #6f4e37;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #4b2e1e;
+        }
+        p {
+            font-size: 14px;
+        }
+        a {
+            color: #6f4e37;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container" id="login">
+        <h2>☕ Welcome Back ☕</h2>
+        <input type="text" id="loginUser" placeholder="Username" required>
+        <input type="password" id="loginPass" placeholder="Password" required minlength="6">
+        <button onclick="login()">Login</button>
+        <p>New here? <a href="#" onclick="showSignup()">Create an account</a></p>
+    </div>
+
+    <div class="container" style="display:none;" id="signup">
+        <h2>☕ Join the Coffee Club ☕</h2>
+        <input type="text" id="signupUser" placeholder="Username" required>
+        <input type="email" id="signupEmail" placeholder="Email" required>
+        <input type="password" id="signupPass" placeholder="Password" required minlength="6">
+        <button onclick="signup()">Sign Up</button>
+        <p>Already a member? <a href="#" onclick="showLogin()">Login here</a></p>
+    </div>
+    
+
+    <script>
+        function showSignup() {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('signup').style.display = 'block';
+        }
+        function showLogin() {
+            document.getElementById('signup').style.display = 'none';
+            document.getElementById('login').style.display = 'block';
+        }
+        function login() {
+            let user = document.getElementById('loginUser').value.trim();
+            let pass = document.getElementById('loginPass').value.trim();
+            if (user === "" || pass === "") {
+                alert("Please fill in all fields ☕");
+                return;
+            }
+            if (pass.length < 6) {
+                alert("Password must be at least 6 characters long ☕");
+                return;
+            }
+            alert("Login Successful! Grab a coffee ☕");
+            window.location.href = "index.html";
+
+        }
+        function signup() {
+            let user = document.getElementById('signupUser').value.trim();
+            let email = document.getElementById('signupEmail').value.trim();
+            let pass = document.getElementById('signupPass').value.trim();
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (user === "" || email === "" || pass === "") {
+                alert("Please fill in all fields ☕");
+                return;
+            }
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address ☕");
+                return;
+            }
+            if (pass.length < 6) {
+                alert("Password must be at least 6 characters long ☕");
+                return;
+            }
+            alert("Signup Successful! Welcome to the Coffee Club ☕");
+            showLogin();
+            window.location.href = "index.html";
+
+        }
+    </script>
+</body>
+</html>

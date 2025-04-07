@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Dulcéa</title>
+    <style>
+        :root {
+            --coffee-red: #8B4513;
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--text-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        /* Navigation Styles */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: var(--text-light);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo h1 {
+            color: var(--coffee-red);
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--coffee-red);
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            background-image: url('https://i.pinimg.com/1200x/28/99/a0/2899a036a783be92b19a8cdbfa6e0636.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Chef Section */
+        .chef-section {
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--coffee-red);
+            font-size: 2.5rem;
+        }
+
+        .chef-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .chef-card {
+            text-align: center;
+            cursor: pointer;
+            width: 180px;
+            transition: transform 0.3s ease;
+        }
+
+        .chef-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .chef-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1rem;
+            border: 3px solid var(--coffee-red);
+        }
+
+        .chef-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chef-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .chef-title {
+            color: var(--coffee-red);
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .chef-modal-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            display: block;
+            border: 3px solid var(--coffee-red);
+        }
+
+        .chef-modal-name {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .chef-modal-title {
+            text-align: center;
+            color: var(--coffee-red);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .chef-modal-bio {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .chef-awards {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        .chef-awards h4 {
+            color: var(--coffee-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .chef-awards ul {
+            padding-left: 1.5rem;
+        }
+
+        .chef-awards li {
+            margin-bottom: 0.5rem;
+        }
+
+  
+        .locations-section {
+            padding: 4rem 2rem;
+            background-color: #f5f5f5;
+        }
+
+        .map-container {
+            height: 550px;
+            max-width: 100%;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        footer {
+            background-color: var(--coffee-red);
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 992px) {
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .chef-image {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .map-container {
+                height: 400px;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--text-light);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+                z-index: 10;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .chef-grid {
+                gap: 1.5rem;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+      
+        }
+        
+        @media screen and (max-width: 576px) {
+            .hero {
+                height: 60vh;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .chef-card {
+                width: 140px;
+            }
+            
+            .chef-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .modal-content {
+                width: 90%;
+                padding: 1.5rem;
+            }
+            
+            .chef-modal-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .chef-modal-name {
+                font-size: 1.5rem;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="logo">
+            <h1>Dulcéa</h1>
+        </div>
+        <div class="menu-toggle">☰</div>
+        <ul class="nav-links">
+            <li><a href="http://127.0.0.1:5500/index.html">Home</a></li>
+            <li><a href="http://127.0.0.1:5500/about.html" class="active">About</a></li>
+            <li><a href="http://127.0.0.1:5500/Giftcards.html">Gift Cards</a></li>
+            <li><a href="http://127.0.0.1:5500/login.html">Login</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h2>ABOUT</h2>
+            <p>Established in 2010, Dulcéa has been a sanctuary for coffee lovers and food enthusiasts. Our journey began with a simple passion for exceptional coffee and a desire to create a space where community, conversation, and culinary excellence could thrive together.</p>
+        </div>
+    </section>
+    
+    <section class="chef-section">
+        <h2 class="section-title">Meet Our Chefs</h2>
+        <div class="chef-grid">
+            <div class="chef-card" onclick="openChefModal('chef1')">
+                <div class="chef-image">
+                    <img src="https://i.pinimg.com/1200x/90/63/02/9063021b43dfaf1cc3370176891e9924.jpg" alt="Chef Isabella Moretti">
+                </div>
+                <h3 class="chef-name">Isabella Moretti</h3>
+                <p class="chef-title">Executive Chef</p>
+            </div>
+            
+            <div class="chef-card" onclick="openChefModal('chef2')">
+                <div class="chef-image">
+                    <img src="https://i.pinimg.com/1200x/06/62/2c/06622c5d863dc08168b8464e5772354d.jpg" alt="Chef Marcus Chen">
+                </div>
+                <h3 class="chef-name">Marcus Chen</h3>
+                <p class="chef-title">Pastry Chef</p>
+            </div>
+            
+            <div class="chef-card" onclick="openChefModal('chef3')">
+                <div class="chef-image">
+                    <img src="https://i.pinimg.com/1200x/4d/db/dc/4ddbdc58eca96d166d63be1d75ed1960.jpg" alt="Chef Olivia Fernandez">
+                </div>
+                <h3 class="chef-name">Fernandez</h3>
+                <p class="chef-title">Head Barista</p>
+            </div>
+            
+            <div class="chef-card" onclick="openChefModal('chef5')">
+                <div class="chef-image">
+                    <img src="https://i.pinimg.com/1200x/10/38/10/103810ca3b9b9ce6c6b1aaa38324991d.jpg" alt="Chef Sofia Patel">
+                </div>
+                <h3 class="chef-name">Sofia Patel</h3>
+                <p class="chef-title">Culinary Director</p>
+            </div>
+        </div>
+
+    </section>
+    <section class="locations-section">
+        <h2 class="section-title">Our Locations</h2>
+        <div class="map-container">
+            <img src="https://i.pinimg.com/1200x/d8/fe/8f/d8fe8f1ce4c73d452f86cca5c13e84cb.jpg" alt="Map of Dulcéa Locations" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        
+    </section>
+    <div id="chef1Modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeChefModal('chef1')">&times;</span>
+            <img src="https://i.pinimg.com/1200x/90/63/02/9063021b43dfaf1cc3370176891e9924.jpg" alt="Chef Isabella Moretti" class="chef-modal-img">
+            <h3 class="chef-modal-name">Isabella Moretti</h3>
+            <p class="chef-modal-title">Executive Chef</p>
+            <div class="chef-modal-bio">
+                <p>With over 20 years of culinary experience across Europe and Asia, Chef Isabella brings a unique global perspective to Dulcéa's kitchen.</p>
+            </div>
+            <div class="chef-awards">
+                <h4>Awards & Recognition</h4>
+                <ul>
+                    <li>James Beard Rising Star Chef (2015)</li>
+                    <li>Food & Wine Best New Chef (2017)</li>
+                    <li>Michelin Star (2019-2023)</li>
+                    <li>City Magazine "Chef of the Year" (2022)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="chef2Modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeChefModal('chef2')">&times;</span>
+            <img src="https://i.pinimg.com/1200x/06/62/2c/06622c5d863dc08168b8464e5772354d.jpg" alt="Chef Marcus Chen" class="chef-modal-img">
+            <h3 class="chef-modal-name">Marcus Chen</h3>
+            <p class="chef-modal-title">Pastry Chef</p>
+            <div class="chef-modal-bio">
+                <p>Marcus Chen is the artistic genius behind Dulcéa's beloved pastry program. With a background in fine arts and culinary training from the Institute of Culinary Education in New York, Marcus approaches pastry as both science and art form.</p>
+            </div>
+            <div class="chef-awards">
+                <h4>Awards & Recognition</h4>
+                <ul>
+                    <li>National Pastry Championship Gold Medal (2018)</li>
+                    <li>World Chocolate Masters Finalist (2020)</li>
+                    <li>Dessert Professional Top 10 Pastry Chefs (2021)</li>
+                    <li>Author of "Sweet Geometry" cookbook (2023)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="chef3Modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeChefModal('chef3')">&times;</span>
+            <img src="https://i.pinimg.com/1200x/4d/db/dc/4ddbdc58eca96d166d63be1d75ed1960.jpg" alt="Chef Olivia Fernandez" class="chef-modal-img">
+            <h3 class="chef-modal-name">Fernandez</h3>
+            <p class="chef-modal-title">Head Barista</p>
+            <div class="chef-modal-bio">
+                <p>As Dulcéa's Head Barista, Olivia Fernandez brings passion, precision, and deep knowledge to every cup. Born into a family of Colombian coffee growers, she has coffee in her DNA and has dedicated her career to elevating the craft of coffee preparation.</p>
+            </div>
+            <div class="chef-awards">
+                <h4>Awards & Recognition</h4>
+                <ul>
+                    <li>National Barista Championship Finalist (2017, 2018, 2019)</li>
+                    <li>World Barista Championship Top 10 (2020)</li>
+                    <li>Specialty Coffee Association Certified Trainer</li>
+                    <li>Featured in "Coffee Masters" documentary series (2022)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="chef5Modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeChefModal('chef5')">&times;</span>
+            <img src="https://i.pinimg.com/1200x/10/38/10/103810ca3b9b9ce6c6b1aaa38324991d.jpg" alt="Chef Sofia Patel" class="chef-modal-img">
+            <h3 class="chef-modal-name">Sofia Patel</h3>
+            <p class="chef-modal-title">Culinary Director</p>
+            <div class="chef-modal-bio">
+                <p>As Dulcéa's Culinary Director, Sofia Patel oversees the strategic direction of all culinary operations across our multiple locations. With an MBA in Hospitality Management and classical training from the Culinary Institute of America, Sofia brings a unique blend of business acumen and culinary expertise.</p>
+            </div>
+            <div class="chef-awards">
+                <h4>Awards & Recognition</h4>
+                <ul>
+                    <li>Hospitality Leader of the Year (2018)</li>
+                    <li>Culinary Innovation Award, Global Gastronomy Summit (2020)</li>
+                    <li>Sustainability Champion, Restaurant Leadership Conference (2022)</li>
+                    <li>Author of "Future Food: Sustainable Cuisine for a New Era" (2023)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer >
+        <p>&copy; 2025 Dulcéa Restaurant. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        
+        // Chef modal functionality
+        function openChefModal(chefId) {
+            document.getElementById(chefId + 'Modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeChefModal(chefId) {
+            document.getElementById(chefId + 'Modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName('modal');
+            for (let i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    modals[i].style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

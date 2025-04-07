@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulcéa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f1e8; /* Light cream background */
+            color: #4a3520; /* Dark coffee color for text */
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #4a3520; /* Dark coffee brown */
+            color: #f5f1e8; /* Light cream for text */
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .contact-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 40px 0;
+            gap: 30px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: #fff8eb; /* Very light cream */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(74, 53, 32, 0.1); /* Coffee-colored shadow */
+        }
+
+        .contact-form {
+            flex: 2;
+            min-width: 300px;
+            background-color: #fff8eb; /* Very light cream */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(74, 53, 32, 0.1); /* Coffee-colored shadow */
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: #6f4e37; /* Medium coffee brown */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #6f4e37; /* Medium coffee brown */
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d2b48c; /* Tan/light coffee */
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #fffaf0; /* Floral white */
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #8c6d46; /* Darker tan */
+            box-shadow: 0 0 5px rgba(140, 109, 70, 0.5); /* Coffee glow */
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        button {
+            background-color: #8b5a2b; /* Saddle brown - coffee color */
+            color: #fff8eb; /* Very light cream for text */
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #6f4e37; /* Medium coffee brown */
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-item i {
+            margin-right: 10px;
+            color: #8b5a2b; /* Saddle brown - coffee color */
+            width: 20px;
+        }
+
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .alert-success {
+            background-color: #dfd3b9; /* Light tan */
+            color: #4a3520; /* Dark coffee */
+            border: 1px solid #d2b48c; /* Tan border */
+        }
+
+        footer {
+            background-color: #4a3520; /* Dark coffee brown */
+            color: #f5f1e8; /* Light cream */
+            padding: 20px 0;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+
+        .social-icons a {
+            color: #f5f1e8; /* Light cream */
+            background-color: #6f4e37; /* Medium coffee brown */
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: #8b5a2b; /* Saddle brown - coffee color */
+        }
+
+        /* Fallback for icons */
+        .icon-fallback {
+            display: inline-block;
+            text-align: center;
+            width: 20px;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 18px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: #f5f1e8;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #d2b48c;
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <h1>Dulcéa</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="http://127.0.0.1:5500/index.html" >Home</a></li>
+                <li><a href="http://127.0.0.1:5500/about.html">About</a></li>
+                <li><a href="http://127.0.0.1:5500/Giftcards.html">Gift Cards</a></li>
+                <li><a href="http://127.0.0.1:5500/login.html#">Login</a></li>
+                <li><a href="http://127.0.0.1:5500/contact.html#" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you!</p>
+    </div>
+
+    <div class="container">
+        <div class="contact-section">
+            <!-- Review form comes first -->
+            <div class="contact-form">
+                <h2>Send Us Your Review</h2>
+                
+                <div id="successAlert" class="alert alert-success">
+                    Review sent successfully!
+                </div>
+                
+                <form id="reviewForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="review">Your Review</label>
+                        <textarea id="review" name="review" required></textarea>
+                    </div>
+                    
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+
+            <!-- Contact info comes second -->
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span class="icon-fallback">📍</span>
+                    <p>123 Food Street, Anna Nagar, Chennai</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <span class="icon-fallback">📞</span>
+                    <p>+044 0456-7890</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span class="icon-fallback">✉️</span>
+                    <p>dulcea@gmail.com</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span class="icon-fallback">🕒</span>
+                    <p>Monday - Saturday: 7AM - 8PM</p><br>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simplified footer with only icons and copyright -->
+    <footer>
+        <div class="container">
+            <h3>Dulcéa</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i><span class="icon-fallback">F</span></a>
+                <a href="#"><i class="fab fa-twitter"></i><span class="icon-fallback">T</span></a>
+                <a href="#"><i class="fab fa-instagram"></i><span class="icon-fallback">I</span></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i><span class="icon-fallback">L</span></a>
+            </div>
+            <p>&copy; 2025 Dulcéa. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Show success alert
+            document.getElementById('successAlert').style.display = 'block';
+            
+            // Reset the form
+            this.reset();
+            
+            // Hide the alert after 3 seconds
+            setTimeout(function() {
+                document.getElementById('successAlert').style.display = 'none';
+            }, 3000);
+        });
+
+        // Check if Font Awesome icons are loaded
+        window.addEventListener('load', function() {
+            // Hide fallback icons if Font Awesome is loaded
+            if (document.querySelector('.fas').clientHeight > 0) {
+                const fallbacks = document.querySelectorAll('.icon-fallback');
+                fallbacks.forEach(icon => {
+                    icon.style.display = 'none';
+                });
+            } else {
+                // Hide Font Awesome icons if they failed to load
+                const faIcons = document.querySelectorAll('.fas, .fab');
+                faIcons.forEach(icon => {
+                    icon.style.display = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

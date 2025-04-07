@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Cards - Dulcéa</title>
+    <style>
+        :root {
+            --coffee-red: #8B4513;
+            --text-dark: #333;
+            --text-light: #fff;
+            --card-back: #994d00;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--text-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Navigation Styles */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: var(--text-light);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo h1 {
+            color: var(--coffee-red);
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--coffee-red);
+        }
+        
+        /* Mobile menu button */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--coffee-red);
+            font-size: 2.5rem;
+        }
+        
+        .gift-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .card {
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1.3s;
+    transform-style: preserve-3d;
+}
+
+.card-front, .card-back {
+    position: absolute; /* Ensure absolute positioning */
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    top: 0;
+    left: 0;
+}
+        
+        
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+    
+        @media (hover: none) {
+            .card:active .card-inner {
+                transform: rotateY(180deg);
+            }
+        }
+        
+        
+        .card-front {
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            position: relative;
+        }
+        
+        .card-front::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.4);
+            border-radius: 15px;
+            z-index: 1;
+        }
+        
+        .card-back {
+            background-color: #663300
+            ;
+            color: white;
+            transform: rotateY(180deg);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        
+      
+        .card-code {
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 5px 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 1.1rem;
+        }
+        
+        .card-validity {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .footer {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Card background images */
+        .card-1 .card-front {
+            background-image: url('https://images.pexels.com/photos/3928854/pexels-photo-3928854.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+        }
+        .card-2 .card-front {
+            background-image: url('https://images.pexels.com/photos/16716140/pexels-photo-16716140/free-photo-of-shashlik-with-tomatoes-cheese-and-sausage.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+        }
+        .card-3 .card-front {
+            background-image: url("https://i.pinimg.com/1200x/8f/a4/69/8fa4690a72e553b75ac0b517c43892a5.jpg");
+        }
+        .card-4 .card-front {
+            background-image: url('https://i.pinimg.com/1200x/54/d7/eb/54d7eb78edd8d0b6b2017873bbfac010.jpg');
+        }
+        .card-5 .card-front {
+            background-image: url('https://i.pinimg.com/1200x/1e/4c/af/1e4caf48683ba5ec29373ddd3fc9547a.jpg');
+        }
+        .card-6 .card-front {
+            background-image: url('https://i.pinimg.com/1200x/7a/cd/90/7acd908575895659c355c8e9e25ac8b1.jpg');
+        }
+        .card-7 .card-front {
+            background-image: url('https://i.pinimg.com/1200x/19/cb/d7/19cbd7566da30157311886c94271e99f.jpg');
+        }
+        .card-8 .card-front {
+            background-image: url('https://i.pinimg.com/1200x/6a/c7/bd/6ac7bdc48618c5b93b02aac3af3f6b24.jpg');
+        }
+        
+        /* Responsive Styles */
+        @media screen and (max-width: 992px) {
+            .gift-cards {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 20px;
+            }
+            
+            .page-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--text-light);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+                z-index: 10;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .gift-cards {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .page-title {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .main-nav {
+                padding: 1rem;
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .gift-cards {
+                grid-template-columns: 1fr;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+                margin-bottom: 25px;
+            }
+            
+            .card-title {
+                font-size: 1.3rem;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="logo">
+            <h1>Dulcéa</h1>
+        </div>
+        <div class="menu-toggle">☰</div>
+        <ul class="nav-links">
+            <li><a href="http://127.0.0.1:5500/index.html#">Home</a></li>
+            <li><a href="http://127.0.0.1:5500/about.html">About</a></li>
+            <li><a href="http://127.0.0.1:5500/Giftcards.html" class="active">Gift Cards</a></li>
+            <li><a href="http://127.0.0.1:5500/login.html#">Login</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1 class="page-title">Gift the Joy of Dulcéa</h1>
+        
+        <div class="gift-cards">
+            <div class="card card-1">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2 class="card-title">Starter Delight</h2>
+                    </div>
+                    <div class="card-back">
+                        <h2 class="card-title">10% Extra Value</h2>
+                        <p class="card-code">DULCEA25</p>
+                        <p class="card-validity">Valid for 12 months</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card card-2">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2 class="card-title">Foodie's Choice</h2>
+                    </div>
+                    <div class="card-back">
+                        <h2 class="card-title">15% Extra Value</h2>
+                        <p class="card-code">DULCEA50</p>
+                        <p class="card-validity">Valid for 12 months</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card card-3">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2 class="card-title">Gourmet Package</h2>
+                    </div>
+                    <div class="card-back">
+                        <h2 class="card-title">20% Extra Value</h2>
+                        <p class="card-code">DULCEA75</p>
+                        <p class="card-validity">Valid for 12 months</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card card-4">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2 class="card-title">Premium Feast</h2>
+                    </div>
+                    <div class="card-back">
+                        <h2 class="card-title">25% Extra Value</h2>
+                        <p class="card-code">DULCEA100</p>
+                        <p class="card-validity">Valid for 12 months</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card card-5">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2 class="card-title">Anniversary Special</h2>
+                    </div>
+                    <div class="card-back">
+                        <h2 class="card-title">Free Dessert + 25% Extra</h2>
+                        <p class="card-code">ANNIV150</p>
+                        <p class="card-validity">Valid for 12 months</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card card-6">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2 class="card-title">Birthday Bash</h2>
+                    </div>
+                    <div class="card-back">
+                        <h2 class="card-title">Free Beverage + 30% Extra</h2>
+                        <p class="card-code">BDAY200</p>
+                        <p class="card-validity">Valid for 12 months</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card card-7">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2 class="card-title">Corporate Package</h2>
+                    </div>
+                    <div class="card-back">
+                        <h2 class="card-title">35% Extra Value + Private Area</h2>
+                        <p class="card-code">CORP500</p>
+                        <p class="card-validity">Valid for 18 months</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card card-8">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2 class="card-title">Luxury Experience</h2>
+                    </div>
+                    <div class="card-back">
+                        <h2 class="card-title">50% Extra + Chef's Table</h2>
+                        <p class="card-code">LUX1000</p>
+                        <p class="card-validity">Valid for 24 months</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Dulcéa Restaurant. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulcéa - Dessert</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="color-overlay"></div>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <h1>Dulcéa</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="http://127.0.0.1:5500/index.html" class="active">Home</a></li>
+                <li><a href="http://127.0.0.1:5500/about.html">About</a></li>
+                <li><a href="http://127.0.0.1:5500/Giftcards.html">Gift Cards</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="http://127.0.0.1:5500/contact.html#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="coffee-menu">
+        <div class="section-header">
+            <h2 class="section-title">Desserts</h2>
+            <button class="back-btn" onclick="goBackToMenu()">
+                <i class="fas fa-arrow-left"></i> Back to Menu
+            </button>
+        </div>
+
+        <div class="coffee-grid">
+            <!-- Food List -->
+            <div class="coffee-item" onclick="showItemDetails('chocolate-cake')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/8c/58/ba/8c58ba472bc6ef743bc78e2565cd910f.jpg" alt="Chocolate Cake">
+                </div>
+                <h2>Chocolate cake</h2>
+                <p>Rich chocolate cake with creamy frosting and a cocoa finish.</p>
+                <span class="price">₹130</span>
+                <span class="badge">Signature</span>
+            </div>
+            <div class="coffee-item" onclick="showItemDetails('tiramisu')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/2f/cc/bc/2fccbc87e4b54c8419f4831cd9d5058a.jpg" alt="Tiramisu">
+                </div>
+                <h2>Tiramisu</h2>
+                <p>Coffee-soaked sponge with creamy mascarpone and cocoa.</p>
+                <span class="price">₹325</span>
+                <span class="badge">Signature</span>
+            </div>
+            <div class="coffee-item" onclick="showItemDetails('chocolate-brownie')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/6e/84/35/6e8435c3341c7090b5d7568fe27d4f1e.jpg" alt="chocolate-brownie">
+                </div>
+                <h2>Chocolate Brownie</h2>
+                <p>Rich, fudgy brownie with a deep chocolate flavor.</p>
+                <span class="price">₹250</span>
+            </div>
+            <div class="coffee-item" onclick="showItemDetails('lava-cake')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/ab/90/50/ab9050a61cf8d5f6071103ac4b42daee.jpg" alt="lava-cake">
+                </div>
+                <h2>Lava Cake</h2>
+                <p>Soft chocolate cake with a rich, warm center.</p>
+                <span class="price">₹280</span>
+            </div>
+            
+            
+            <div class="coffee-item" onclick="showItemDetails('strawberry-cheesecake')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/54/4d/58/544d581edd56926f61d2546c74223824.jpg" alt="strawberry-cheesecake">
+                </div>
+                <h2>Strawberry Cheesecake</h2>
+                <p>Creamy cheesecake with a buttery crust, topped with fresh strawberries.</p>
+                <span class="price">₹350</span>
+            </div>
+            
+            <div class="coffee-item" onclick="showItemDetails('blueberry-muffin')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/4e/a4/89/4ea489445c5b485bca0551fef238165b.jpg" alt="blueberry-muffin">
+                </div>
+                <h2>Blueberry Muffin</h2>
+                <p>Soft and fluffy muffin bursting with juicy blueberries.</p>
+                <span class="price">₹150</span>
+            </div>
+            
+            <div class="coffee-item" onclick="showItemDetails('red-velvet-cake')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/8e/44/73/8e447356eeecc79ed0755d9ee155c0be.jpg" alt="red-velvet-cake">
+                </div>
+                <h2>Red Velvet Cake</h2>
+                <p>Soft red velvet sponge layered with smooth cream cheese frosting.</p>
+                <span class="price">₹390</span>
+            </div>
+            
+            <div class="coffee-item" onclick="showItemDetails('butterscotch-pudding')">
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/1200x/b7/df/08/b7df086a32285cf6e891191c54cca20a.jpg" alt="butterscotch-pudding">
+                </div>
+                <h2>Butterscotch Pudding</h2>
+                <p>Silky smooth pudding with caramelized butterscotch and a crunchy topping.</p>
+                <span class="price">₹260</span>
+            </div>
+            
+       
+
+    <div class="coffee-details hidden" id="itemDetails">
+        <div class="details-content">
+            <button class="close-btn" onclick="closeItemDetails()">×</button>
+            
+            <div class="detail-text">
+                <h2 id="detailTitle">Item Name</h2>
+                <p id="detailDescription">Detailed description of the item goes here.</p>
+                <div class="coffee-info">
+                    <div class="info-item">
+                        <span>Ingredients</span>
+                        <ul id="detailIngredients">
+                            <li>Ingredient 1</li>
+                            <li>Ingredient 2</li>
+                            <li>Ingredient 3</li>
+                        </ul>
+                    </div>
+                    <div class="info-item">
+                        <span>Options</span>
+                        <ul id="detailOptions">
+                            <li>Option 1</li>
+                            <li>Option 2</li>
+                        </ul>
+                    </div>
+                    <div class="info-item">
+                        <span>Price</span>
+                        <p id="detailPrice">$5.99</p>
+                    </div>
+                    <button class="add-to-menu-btn" onclick="redirectToLogin()">Add to Menu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+    <script>
+        // Coffee details database
+        const coffeeDetails = { 
+            'chocolate-cake': {
+    title: 'Chocolate Cake',
+    description: 'Rich chocolate cake with creamy frosting and a cocoa finish.',
+    ingredients: ['Chocolate sponge', 'Cocoa powder', 'Buttercream frosting', 'Sugar'],
+    options: ['Regular', 'Extra frosting (+₹40)', 'Add choco chips (+₹50)'],
+    price: '₹130'},
+    'tiramisu': {
+    title: 'Tiramisu',
+    description: 'Layers of coffee-soaked sponge, mascarpone, and cocoa.',
+    ingredients: ['Espresso-soaked sponge', 'Mascarpone cheese', 'Cocoa powder', 'Sugar'],
+    options: ['Regular', 'Extra cocoa (+₹30)', 'Add chocolate chips (+₹50)'],
+    price: '₹325'
+},
+    'chocolate-brownie': {
+    title: 'Chocolate Brownie',
+    description: 'Rich, fudgy brownie with a deep chocolate flavor.',
+    ingredients: ['Dark chocolate', 'Cocoa powder', 'Butter', 'Sugar', 'Flour'],
+    options: ['Regular', 'Add walnuts (+₹40)', 'Serve with ice cream (+₹60)'],
+    price: '₹250'
+},
+
+
+
+    'lava-cake': {
+        title: 'Lava Cake',
+        description: 'Warm, soft chocolate cake with a rich molten center.',
+        ingredients: ['Chocolate', 'Butter', 'Eggs', 'Sugar', 'Flour'],
+        options: ['Regular', 'Extra chocolate (+₹40)', 'Vanilla ice cream (+₹60)'],
+        price: '₹320'
+    },
+
+    'strawberry-cheesecake': {
+        title: 'Strawberry Cheesecake',
+        description: 'Creamy cheesecake with a buttery crust, topped with fresh strawberries.',
+        ingredients: ['Cream cheese', 'Graham cracker crust', 'Strawberries', 'Sugar'],
+        options: ['Regular', 'Extra strawberry topping (+₹40)', 'Whipped cream (+₹30)'],
+        price: '₹480'
+    },
+
+    'butterscotch-pudding': {
+        title: 'Butterscotch Pudding',
+        description: 'Silky smooth butterscotch-flavored pudding with caramel notes.',
+        ingredients: ['Butter', 'Brown sugar', 'Milk', 'Vanilla', 'Cornstarch'],
+        options: ['Regular', 'Extra caramel drizzle (+₹30)', 'Chopped nuts (+₹40)'],
+        price: '₹350'
+    },
+
+    'red-velvet-cake': {
+        title: 'Red Velvet Cake',
+        description: 'Soft and moist red velvet cake with rich cream cheese frosting.',
+        ingredients: ['Cocoa', 'Buttermilk', 'Red food coloring', 'Cream cheese', 'Sugar'],
+        options: ['Regular', 'Extra frosting (+₹50)', 'Chocolate drizzle (+₹40)'],
+        price: '₹520'
+    },
+
+    'blueberry-muffin': {
+        title: 'Blueberry Muffin',
+        description: 'Fluffy muffin packed with juicy blueberries and a hint of vanilla.',
+        ingredients: ['Flour', 'Sugar', 'Blueberries', 'Eggs', 'Vanilla extract'],
+        options: ['Regular', 'Extra blueberries (+₹30)', 'Crumble topping (+₹40)'],
+        price: '₹280'
+    }
+};
+
+
+
+
+
+        // Function to show item details
+        function showItemDetails(itemId) {
+            const details = coffeeDetails[itemId] || {
+                title: 'Coffee Item',
+                description: 'Detailed description not available.',
+                ingredients: ['Ingredient information not available'],
+                options: ['Options not available'],
+                price: 'Price not available',
+                
+            };
+            
+            document.getElementById('detailTitle').textContent = details.title;
+            document.getElementById('detailDescription').textContent = details.description;
+            document.getElementById('detailPrice').textContent = details.price;
+           
+            
+            // Update ingredients list
+            const ingredientsList = document.getElementById('detailIngredients');
+            ingredientsList.innerHTML = '';
+            details.ingredients.forEach(ingredient => {
+                const li = document.createElement('li');
+                li.textContent = ingredient;
+                ingredientsList.appendChild(li);
+            });
+            
+            // Update options list
+            const optionsList = document.getElementById('detailOptions');
+            optionsList.innerHTML = '';
+            details.options.forEach(option => {
+                const li = document.createElement('li');
+                li.textContent = option;
+                optionsList.appendChild(li);
+            });
+            
+            document.getElementById('itemDetails').classList.remove('hidden');
+        }
+        
+        function closeItemDetails() {
+            document.getElementById('itemDetails').classList.add('hidden');
+        }
+        function redirectToLogin() {
+            alert("Item added to menu!");
+
+        }
+    </script>
+</body>
+</html>
